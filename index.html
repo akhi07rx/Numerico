@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Numerico</title>
+    <style>
+      body {
+        margin: 0;
+        overflow: hidden;
+        background-color: #000;
+        color: #fff;
+      }
+
+      .number {
+        position: absolute;
+        font-size: 16px;
+        color: #fff;
+        animation: fallingNumber 5s linear infinite;
+      }
+
+      @keyframes fallingNumber {
+        0% {
+          transform: translateY(-100vh);
+        }
+        100% {
+          transform: translateY(100vh);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <script>
+      function createFallingNumber() {
+        const number = document.createElement("div");
+        number.classList.add("number");
+        number.innerText = Math.floor(Math.random() * 10); // Display a random number (0-9)
+        number.style.left = `${Math.random() * 100}vw`;
+        document.body.appendChild(number);
+      }
+
+      setInterval(createFallingNumber, 100);
+    </script>
+  </body>
+</html>
